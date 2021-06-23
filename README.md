@@ -1,3 +1,4 @@
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 # Led_lamp
 
 - Project table color led lamp based on st89s52+ws2812+ttp223.
