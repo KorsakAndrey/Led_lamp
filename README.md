@@ -1,6 +1,6 @@
 # Led_lamp
 
-- Project color led lamp based on st89s52+ws2812+ttp223.
+- Project table color led lamp based on st89s52+ws2812+ttp223.
 - ST89s52 work on 27.000 Mhz crystal.
 - Include part of library [microLED](https://github.com/GyverLibs/microLED) from Alex Gyver.
 ### Lamp have three mode:
