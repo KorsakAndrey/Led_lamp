@@ -1,6 +1,6 @@
 # Led_lamp
 
-Project color led lamp based on st89s52+ws2812.
+Project color led lamp based on st89s52+ws2812./n
 Include part of library microLED from Alex Gyver - https://github.com/GyverLibs/microLED.
 Lamp have three mode:
   1.Wight light
