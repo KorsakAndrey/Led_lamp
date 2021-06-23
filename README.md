@@ -1,5 +1,5 @@
 ![License: MIT](https://img.shields.io/github/license/KorsakAndrey/led_lamp)
-# Led_lamp
+# Table led lamp
 
 - Project table color led lamp based on st89s52+ws2812+ttp223.
 - ST89s52 work on 27.000 Mhz crystal.
