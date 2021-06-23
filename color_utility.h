@@ -1,6 +1,7 @@
 #ifndef color_utility_h
 #define color_utility_h
 
+/*Part of library microLED from Alex Gyver - https://github.com/GyverLibs/microLED*/
 
 char fade8(char x, char b);
 unsigned long int mRGB(int r, int g, int b);		/* RGB 255, 255, 255*/
