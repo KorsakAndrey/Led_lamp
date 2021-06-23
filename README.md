@@ -8,4 +8,5 @@
 1. White light
 2. Change color from red to purple thought green and blue, and return
 3. Spin rainbow
-
+### Schematic:
+![Mesage log ](/Schematic_Led_lamp.png)
