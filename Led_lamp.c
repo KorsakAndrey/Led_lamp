@@ -1,4 +1,4 @@
-#define pin_out p1.2      /*data out pin for asembler (pX.n)*/
+#define pin_out p1.2  /*data out pin for asembler (pX.n)*/
 #define Touch P1_1    /*sensor in pin for "C" (PX_n)*/
 #define Leds 12       /*number of leds*/
 
@@ -12,7 +12,7 @@ unsigned long int mas[Leds]; /*leds array*/
 char f = 1;                  /*turn flag*/
 char mode = 0;               /*work mode*/
 char touched = 0;            /*touch flag*/
-int counter = 0;			 /*touch counter*/
+int counter = 0;	     /*touch counter*/
 
 void change_mode(void)
 {
@@ -30,19 +30,19 @@ char change_bright(void)
 
 void off(void)
 {
-char i;
+	char i;
 	for(i=0;i<Leds;i++) mas[i] = 0x000000;	
 }
 
 void white(void)
 {
-char i;
+	char i;
 	for(i=0;i<Leds;i++)mas[i] = 0xC0C0C0;	
 }
 
 void snake(void)
 {	
-char i;
+	char i;
 	for(i=0;i<Leds;i++){
 		mas[i] = mWheel(col,bright);
 		f = f ? (col++ < 1300) : (col-- == 1);
@@ -53,47 +53,50 @@ char i;
 
 void rainbow(void)
 {
-static char counter = 0;
-int i;
+	static char counter = 0;
+	int i;
 	for (i = 0; i < Leds; i++) {
 		mas[i] = mWheel8(counter + i * 255 / Leds,bright);   /*counter смещает цвет*/
 	}
-counter += 3;
+	counter += 3;
 }
 
 void main()
 {
-char i;
-	while(1){
-/*====EXTERNAL CONTROL====*/
-	if (Touch == 0) touched = 0;	
-	if (Touch & touched == 0){
-		change_mode();
-		touched = 1;
-	}
-	if (counter++ == 100 & Touch) counter = change_bright();
-	if (counter > 0 & Touch == 0) counter = 0;
-/*====SELECT MODE====*/
-	switch (mode ) {
-case 0:
-  off();
-  break;
-case 1:
-  white();
-  break;
-case 2:
-  snake();
-  break;
-case 3:
-  rainbow();
-  break;
-default:
-   break;
-	}
-/*====TRANSMIT DATA====*/	
-	rse(1500);		/*use for restart before transmit and delay*/
-	for(i=0;i<Leds;i++){
-		Transmit(mas[i]);		/*transmit array*/
-	}
-  }
+	char i;
+	while(1)
+	{
+		/*====EXTERNAL CONTROL====*/
+		if (Touch == 0) touched = 0;	
+		if (Touch & touched == 0){
+			change_mode();
+			touched = 1;
+		}
+		if (counter++ == 100 & Touch) counter = change_bright();
+		if (counter > 0 & Touch == 0) counter = 0;
+		
+		/*====SELECT MODE====*/
+		switch (mode ) {
+			case 0:
+			  off();
+			  break;
+			case 1:
+			  white();
+			  break;
+			case 2:
+			  snake();
+			  break;
+			case 3:
+			  rainbow();
+			  break;
+			default:
+			   break;
+		}
+		
+		/*====TRANSMIT DATA====*/	
+		rse(1500);			/*use for restart before transmit and delay*/
+		for(i=0;i<Leds;i++){
+			Transmit(mas[i]);	/*transmit array*/
+		}
+  	}
 }
