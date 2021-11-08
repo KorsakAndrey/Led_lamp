@@ -1,4 +1,4 @@
-git@github.com:KorsakAndrey/Led_lamp.git![License: MIT](https://img.shields.io/github/license/KorsakAndrey/led_lamp)
+![License: MIT](https://img.shields.io/github/license/KorsakAndrey/led_lamp)
 # Table led lamp
 
 - Project table color led lamp based on st89s52+ws2812+ttp223.
